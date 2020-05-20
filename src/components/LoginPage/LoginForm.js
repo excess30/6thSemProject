@@ -1,24 +1,6 @@
 import React, { Component } from 'react';
 import { Panel, Form, FormGroup, FormControl, Button } from 'react-bootstrap';
-
-
-const divStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  marginTop: -100
-};
-
-const panelStyle = {
-  backgroundColor: 'rgba(255,255,255,0.5)',
-  border: 0,
-  paddingLeft: 20,
-  paddingRight: 20,
-  width: 300,
-};
-
-const buttonStyle = {
-  marginBottom: 0
-};
+import './LoginPage.css'
 
 class LoginForm extends Component {
 
@@ -31,8 +13,8 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div style={divStyle}>
-        <Panel style={panelStyle}>
+      <div>
+        <Panel className="Panel">
           <Form horizontal className="LoginForm" id="loginForm">
             <FormGroup controlId="formEmail">
               <FormControl type="email" placeholder="Email Address" />
@@ -40,7 +22,7 @@ class LoginForm extends Component {
             <FormGroup controlId="formPassword">
               <FormControl type="password" placeholder="Password" />
             </FormGroup>
-            <FormGroup style={buttonStyle} controlId="formSubmit">
+            <FormGroup controlId="formSubmit">
               <Button bsStyle="primary" type="submit" onClick={this.handleFormSubmit}>
                 Login
               </Button>
