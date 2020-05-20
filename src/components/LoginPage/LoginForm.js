@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Form, FormGroup, FormControl, Button } from 'reactstrap';
+import { Panel, Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 
 
 const divStyle = {
