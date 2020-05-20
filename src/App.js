@@ -9,14 +9,6 @@ import LoginPage from './components/LoginPage/LoginPage';
 import NavBar from './components/NavBar/NavBar';
 import './App.css';
 
-const Home = () => (
-  <HomePage />
-);
-
-const Login = () => (
-  <LoginPage />
-);
-
 class App extends Component {
   render() {
     return (
@@ -24,8 +16,8 @@ class App extends Component {
         <div className="App">
           <NavBar/>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/login" component={LoginPage} />
           </Switch>        
         </div>
       </Router>
