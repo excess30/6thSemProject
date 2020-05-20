@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import LoginPage from './components/LoginPage/LoginPage';
+import NavBar from './components/NavBar/NavBar';
 import './App.css';
 
 const Home = () => (
@@ -20,8 +22,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
+          <NavBar/>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/login" component={Login} />
+          </Switch>        
         </div>
       </Router>
     );

@@ -13,7 +13,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="vertical-center">
         <Panel className="Panel">
           <Form horizontal className="LoginForm" id="loginForm">
             <FormGroup controlId="formEmail">
