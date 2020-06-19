@@ -16,3 +16,20 @@
     padding-right: 20px;
     padding-top: 20px;
 }
+
+.LoginPage .loginButton {
+	padding: 6px 23px;
+	background: #3f4257;
+	border-radius: 30px;
+	color: white;
+	font-weight: 300;
+	font-size: 14px;
+	transition: all 0.2s ease-in;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+
+.LoginPage .loginButton:hover {
+	background: #545972;
+}
