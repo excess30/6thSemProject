@@ -55,7 +55,7 @@ class UploadPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="UploadScanPage">
                 <h1>Upload scans</h1>
                 <div>
                     <Uploader onChange={this.onFileChange} scanType="flair" ext=".nii.gz"/>
@@ -64,7 +64,7 @@ class UploadPage extends React.Component {
                     <Uploader onChange={this.onFileChange} scanType="t2" ext=".nii.gz"/>
                 </div>
                 <div>
-                <Button className="uploadButton" bsStyle="primary" type="button" onClick={this.uploadFiles}>
+                <Button className="uploadButton" variant="primary" type="button" onClick={this.uploadFiles}>
                     Upload
                 </Button>
                 </div>

@@ -28,8 +28,6 @@ class CreatePatientPage extends React.Component {
             contact: this.contact.value
         }, { headers: { "x-access-token": localStorage.getItem("token") }})
         .then((res) => {
-            console.log(res);
-            console.log(res.data.patient_id);
             history.push({
                 pathname: "/upload", 
                 patient_id: res.data.patient_id   
