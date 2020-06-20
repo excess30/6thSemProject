@@ -1,6 +1,7 @@
 .LoginPage {
     display: flex;
-    justify-content: center;
+	justify-content: center;
+	padding-top: 20px;
 }
 
 .vertical-center {

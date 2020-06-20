@@ -11,6 +11,7 @@ import NavBar from '../navbar';
 import UploadPage from '../uploadpage';
 import history from '../../history';
 import ChoosePatientPage from '../choosepatientpage';
+import MedicalRecordPage from '../medicalrecordpage';
 
 class Routes extends React.Component {
     render() {
@@ -19,7 +20,7 @@ class Routes extends React.Component {
                 <div className="App">
                 <Switch>
                     <Route exact path="/" component={LoginPage} />
-                    <Route path="/(home|new-patient|upload|choose-patient)" render={
+                    <Route path="/(home|new-patient|upload|choose-patient|medical-record)" render={
                         () => (
                             <NavBar>
                                 <Switch>
@@ -27,6 +28,7 @@ class Routes extends React.Component {
                                     <Route path="/new-patient" component={CreatePatientPage}/>
                                     <Route path="/upload" component={UploadPage} />
                                     <Route path="/choose-patient" component={ChoosePatientPage} />
+                                    <Route path="/medical-record" component={MedicalRecordPage} />
                                 </Switch>
                             </NavBar>
                         )

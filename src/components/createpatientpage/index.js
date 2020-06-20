@@ -30,7 +30,14 @@ class CreatePatientPage extends React.Component {
         .then((res) => {
             history.push({
                 pathname: "/upload", 
-                patient_id: res.data.patient_id   
+                patient_data: {
+                    id: res.data.patient_id,
+                    name: this.name.value,
+                    gender: this.gender.value,
+                    dob: this.dob.value,
+                    contact: this.contact.value
+                },
+                record_id: res.data.record_id
             });
         })
         .catch((err) => {

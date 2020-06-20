@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, Accordion, Card, Button } from 'react-bootstrap';
 import './index.css'
 import axios from 'axios';
 import history from '../../history';
@@ -21,6 +21,7 @@ class ChoosePatientPage extends React.Component {
             }
         })
         .then(response => {
+            console.log(response.data);
             this.setState({ patient_data: response.data.sort() });
         })
         .catch(err => {
@@ -29,12 +30,19 @@ class ChoosePatientPage extends React.Component {
         });
     }
 
-    onClick(event, value) {
+    onClick(event, patient_data, record_id) {
         event.preventDefault();
 
         history.push({
             pathname: "/upload", 
-            patient_id: value.id   
+            patient_data: {
+                id: patient_data.id,
+                name: patient_data.name,
+                gender: patient_data.gender,
+                dob: patient_data.dob,
+                contact: patient_data.contact
+            },
+            record_id: record_id
         });
     }
     
@@ -47,13 +55,34 @@ class ChoosePatientPage extends React.Component {
         else {
             const items = [];
             for (const [index, value] of this.state.patient_data.entries()) {
+                
+                // creating list of records
+                let record_items = [];
+                for (const [index, record_id] of value.records.entries()) {
+                    record_items.push(
+                        <ListGroup.Item key={`${record_id}:${index}`} action onClick={(event) => this.onClick(event, value, record_id)}>
+                            {`record ${record_id}`}
+                        </ListGroup.Item>
+                    )
+                }
                 items.push(
-                    <ListGroup.Item key={index} action onClick={(event) => this.onClick(event, value)}>
-                        {value.name}
-                    </ListGroup.Item>
+                    <Card>
+                        <Card.Header>
+                            <Accordion.Toggle as={Button} variant="text" eventKey={index}>
+                                {value.name}
+                            </Accordion.Toggle>
+                        </Card.Header>
+                        <Accordion.Collapse eventKey={index}>
+                            <Card.Body>
+                                <ListGroup variant="flush">
+                                    {record_items}
+                                </ListGroup>
+                            </Card.Body>
+                        </Accordion.Collapse>
+                    </Card>     
                 );
             }
-            body = <ListGroup>{items}</ListGroup>
+            body = <Accordion> {items} </Accordion>
         }
         
         return (

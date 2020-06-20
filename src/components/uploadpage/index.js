@@ -3,6 +3,7 @@ import './index.css'
 import UploadIcon from './assets/UploadIcon.svg';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import history from '../../history';
 
 class UploadPage extends React.Component {
 
@@ -24,11 +25,11 @@ class UploadPage extends React.Component {
         this.setState({ [type]: file });
     }
 
-    uploadFiles() {
-        console.log(this.state);
+    uploadFiles(e) {
+        e.preventDefault();
 
         const data = new FormData();
-        data.append("patient_id", this.props.location.patient_id);
+        data.append("patient_id", this.props.location.patient_data.id);
         data.append("t1", this.state.t1);
         data.append("t1ce", this.state.t1ce);
         data.append("t2", this.state.t2);
@@ -46,6 +47,11 @@ class UploadPage extends React.Component {
             document.body.appendChild(link);
             link.click();
             link.remove();
+            history.push({
+                pathname: "/medical-record",
+                patient_data: this.props.location.patient_data,
+                record_id: this.props.location.record_id
+            });
         })
         .catch( (err) => {
             console.log(err);
