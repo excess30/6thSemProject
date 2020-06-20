@@ -1,6 +1,6 @@
 import React from 'react';
 import history from '../../history';
-import { Panel, Form, FormGroup, FormControl, Button } from 'react-bootstrap';
+import { Card, Form, Button } from 'react-bootstrap';
 import './index.css'
 import axios from 'axios';
 
@@ -46,29 +46,29 @@ class CreatePatientPage extends React.Component {
             <div className="patient-form">
                 <h1>Create New Patient</h1>
                 <div className="vertical-center">
-                    <h3>Please enter the patient details: </h3>
-                    <br/>
-                    <Panel className="Panel">
+                    <Card className="Panel">
+                        <h3>Please enter the patient details: </h3>
+                        <br/>
                         <Form horizontal>
-                            <FormGroup controlId="name">
-                                <FormControl type="text" placeholder="Patient name" inputRef={(value) => this.name = value}/>
-                            </FormGroup>
-                            <FormGroup controlId="gender">
-                                <FormControl type="text" placeholder="Gender" inputRef={(value) => this.gender = value}/>
-                            </FormGroup>
-                            <FormGroup controlId="dob">
-                                <FormControl type="text" placeholder="dob" inputRef={(value) => this.dob = value}/>
-                            </FormGroup>
-                            <FormGroup controlId="contact">
-                                <FormControl type="text" placeholder="Contact" inputRef={(value) => this.contact = value}/>
-                            </FormGroup>
-                            <FormGroup controlId="submit">
+                            <Form.Group controlId="name">
+                                <Form.Control type="text" placeholder="Patient name" ref={(value) => this.name = value}/>
+                            </Form.Group>
+                            <Form.Group controlId="gender">
+                                <Form.Control type="text" placeholder="Gender" ref={(value) => this.gender = value}/>
+                            </Form.Group>
+                            <Form.Group controlId="dob">
+                                <Form.Control type="text" placeholder="dob" ref={(value) => this.dob = value}/>
+                            </Form.Group>
+                            <Form.Group controlId="contact">
+                                <Form.Control type="text" placeholder="Contact" ref={(value) => this.contact = value}/>
+                            </Form.Group>
+                            <Form.Group controlId="submit">
                                 <Button className="submitButton" bsStyle="primary" type="button" onClick={this.submitForm}>
                                     Submit
                                 </Button>
-                            </FormGroup>
+                            </Form.Group>
                         </Form>
-                    </Panel>
+                    </Card>
                 </div>
             </div>
         );

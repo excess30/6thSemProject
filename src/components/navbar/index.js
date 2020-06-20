@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+
 
 class NavBar extends Component {
-  render() {
-
-    return (
-      <div>
-        <Navbar>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="/">Medical Image Analysis</a>
-            </Navbar.Brand>
-          </Navbar.Header>
-          <Nav>
-            <NavItem eventKey={1} href="/home">Home</NavItem>
-            <NavItem eventKey={2} href="/new-patient">New Patient</NavItem>
-          </Nav>
-        </Navbar>
-        {this.props.children}
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <Navbar bg="dark" expand="lg" variant="dark">
+                    <Navbar.Brand href="/home">Medical Image Analysis</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="mr-auto">
+                            <Nav.Link href="/home">Home</Nav.Link>
+                            <Nav.Link href="/new-patient">New Patient</Nav.Link>
+                            <Nav.Link href="/choose-patient">Existing Patient</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+                {this.props.children}
+            </div>
+        );
+    }
 }
 
 export default NavBar;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, Form, FormGroup, FormControl, Button } from 'react-bootstrap';
+import { Card, Form, Button } from 'react-bootstrap';
 import history from '../../history';
 import './index.css'
 import axios from 'axios';
@@ -20,7 +20,7 @@ class LoginForm extends Component {
 
     handleFormSubmit(e) {
         e.preventDefault();
-    
+        
         axios.post("http://127.0.0.1:5000/api/login", {
             id: this.id.value,
             password: this.password.value
@@ -37,23 +37,21 @@ class LoginForm extends Component {
 
     render() {
         return (
-        <div className="vertical-center">
-            <Panel className="Panel">
-            <Form horizontal className="LoginForm" id="loginForm">
-                <FormGroup controlId="formEmail">
-                <FormControl type="doctor_id" placeholder="Doctor ID" inputRef={(value) => this.id = value}/>
-                </FormGroup>
-                <FormGroup controlId="formPassword">
-                <FormControl type="password" placeholder="Password" inputRef={(value) => this.password = value}/>
-                </FormGroup>
-                <FormGroup controlId="formSubmit">
-                <Button className="loginButton" bsStyle="primary" type="submit" onClick={this.handleFormSubmit}>
-                    Login
-                </Button>
-                </FormGroup>
-            </Form>
-            </Panel>
-        </div>
+            <div className="vertical-center">
+                <Card className="Panel">
+                    <Form horizontal className="LoginForm" id="loginForm">
+                        <Form.Group controlId="formEmail">
+                            <Form.Control type="text" placeholder="Doctor ID" ref={(ref) => this.id = ref}/>
+                        </Form.Group>
+                        <Form.Group controlId="formPassword">
+                            <Form.Control type="password" placeholder="Password" ref={(ref) => this.password = ref}/>
+                        </Form.Group>
+                        <Button className="loginButton" variant="primary" type="submit" onClick={this.handleFormSubmit}>
+                            Login
+                        </Button>
+                    </Form>
+                </Card>
+            </div>
         );
     }
 }
