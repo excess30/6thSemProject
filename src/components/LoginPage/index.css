@@ -1,6 +1,12 @@
+html, body, #root {
+	height: 100%
+}
+
 .LoginPage {
-    display: flex;
-	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
 	padding-top: 20px;
 }
 
@@ -30,8 +36,15 @@
 	cursor: pointer;
 	outline: none;
 	border: none;
+	width: 45%;
 }
 
 .LoginPage .loginButton:hover {
 	background: #545972;
+}
+
+.button-div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

@@ -17,7 +17,6 @@ class Routes extends React.Component {
     render() {
         return (
             <Router history={history}>
-                <div className="App">
                 <Switch>
                     <Route exact path="/" component={LoginPage} />
                     <Route path="/(home|new-patient|upload|choose-patient|medical-record)" render={
@@ -29,14 +28,13 @@ class Routes extends React.Component {
                                     <Route path="/upload" component={UploadPage} />
                                     <Route path="/choose-patient" component={ChoosePatientPage} />
                                     <Route path="/medical-record" component={MedicalRecordPage} />
-                                </Switch>
+                                </Switch>                
                             </NavBar>
                         )
                     }   
                     />
                     
-                </Switch>    
-                </div>
+                </Switch>
             </Router>
         );
     }

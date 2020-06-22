@@ -39,17 +39,19 @@ class LoginForm extends Component {
         return (
             <div className="vertical-center">
                 <Card className="Panel">
-                    <Form horizontal className="LoginForm" id="loginForm">
+                    <Form className="LoginForm" id="loginForm">
                         <Form.Group controlId="formEmail">
                             <Form.Control type="text" placeholder="Doctor ID" ref={(ref) => this.id = ref}/>
                         </Form.Group>
                         <Form.Group controlId="formPassword">
                             <Form.Control type="password" placeholder="Password" ref={(ref) => this.password = ref}/>
                         </Form.Group>
+                    </Form>
+                    <div className="button-div">
                         <Button className="loginButton" variant="primary" type="submit" onClick={this.handleFormSubmit}>
                             Login
                         </Button>
-                    </Form>
+                    </div>
                 </Card>
             </div>
         );

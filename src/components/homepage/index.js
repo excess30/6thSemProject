@@ -5,9 +5,11 @@ import './index.css';
 class HomePage extends Component {
 
     render() {
-        if (localStorage.getItem("token") != null)
-            return <HomePageContents />;
-        return <Redirect to="/" />
+        const token = localStorage.getItem("token");
+
+        if (token === "" || token === "undefined" || token === "null")
+            return <Redirect to="/" />
+        return <HomePageContents />;
     }
 }
 
@@ -15,7 +17,7 @@ class HomePageContents extends Component {
     render() {
         return (
             <div className="HomePage">
-                <h1 class="display-3">Home Page</h1>
+                <h1 class="display-3">Home</h1>
             </div>
         );
     }

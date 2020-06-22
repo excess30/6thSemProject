@@ -83,10 +83,10 @@ class UploadPage extends React.Component {
                     </Row>
                 </Container>
                 <br /><br />
-                <div>
-                <Button className="uploadButton" variant="primary" type="button" onClick={this.uploadFiles}>
-                    Upload
-                </Button>
+                <div className="button-div">
+                    <Button className="uploadButton" variant="primary" type="button" onClick={this.uploadFiles}>
+                        Upload
+                    </Button>
                 </div>
             </div>
         );
