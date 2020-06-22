@@ -82,12 +82,12 @@ class ChoosePatientPage extends React.Component {
                     </Card>     
                 );
             }
-            body = <Accordion> {items} </Accordion>
+            body = <Accordion className="patients-list"> {items} </Accordion>
         }
         
         return (
             <div className="ChoosePatientPage">
-                <h1>Choose Patient</h1>
+                <h1 class="display-3">Choose Patient</h1>
                 <br/>
                 {body}
             </div>

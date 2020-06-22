@@ -1,5 +1,6 @@
 .UploadScanPage {
 	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .fileUploader {
@@ -20,7 +21,7 @@
 	transition: all 0.3s ease-in;
 }
 
-.uploadButton {
+.UploadScanPage .uploadButton {
 	padding: 6px 23px;
 	background: #3f4257;
 	border-radius: 30px;

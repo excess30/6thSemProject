@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Form, Button, Modal } from 'react-bootstrap';
+import { Card, Form, Button, Modal, Row, Col, Container } from 'react-bootstrap';
 import './index.css';
 import axios from 'axios';
 import history from '../../history';
@@ -43,39 +43,72 @@ class MedicalRecordForm extends React.Component {
     render() {
         if ( ! this.state.updated)
             return (
-                <div className="vertical-center">
-                    <Card className="Panel">
-                        <Form className="MedicalRecord" id="recordForm">
-                            <Form.Group controlId="formpatient">
-                                <Form.Label>Patient Name: {this.props.name}</Form.Label>
-                                <br/>
-                                <Form.Label>Gender: {this.props.gender}</Form.Label>
-                                <br/>
-                                <Form.Label>DOB: {this.props.dob}</Form.Label>
-                                <br/>
-                                <Form.Label>Contact: {this.props.contact}</Form.Label>
-                                <br/>
-                            </Form.Group>
-                            <Form.Group controlId="formDiagnosis">
-                                <Form.Label>Diagnosis:  </Form.Label>
-                                <Form.Control type="text" placeholder="Enter Diagnosis Data" ref={(ref) => this.diagnosis = ref}/>
-                            </Form.Group>
-                            <Form.Group controlId="formSymptoms">
-                                <Form.Label id="symptomstxt">Symptoms:  </Form.Label>
-                                <Form.Control type="text" placeholder="Enter Symptoms Data" ref={(ref) => this.symptoms = ref}/>
-                            </Form.Group>
-                            <Form.Group controlId="formTreatment">
-                                <Form.Label id="treatmenttxt">Treatment:  </Form.Label>
-                                <Form.Control type="text" placeholder=" Enter Treatment Data" ref={(ref) => this.treatment = ref}/>
-                            </Form.Group>
-                            <Form.Group controlId="formSave">
-                                <Button variant="secondary" type="Save" onClick={this.handleFormSubmit}>
-                                    Save
-                                </Button>
-                            </Form.Group>
-                        </Form>
-                    </Card>
-                </div>
+                <Card className="medical-form-card">
+                    <Form>
+                        <Form.Group>
+                            <Container className="label-container">
+                                <Row>
+                                    <Col className="col-label">
+                                        <Form.Label>Patient Name: </Form.Label>
+                                    </Col>
+                                    <Col className="col-value">
+                                        <Form.Label>{this.props.name}</Form.Label>
+                                    </Col>
+                                </Row>
+                            </Container>
+
+                            <Container className="label-container">
+                                <Row>
+                                    <Col className="col-label">
+                                        <Form.Label>Gender: </Form.Label>
+                                    </Col>
+                                    <Col className="col-value">
+                                        <Form.Label>{this.props.gender}</Form.Label>
+                                    </Col>
+                                </Row>
+                            </Container>
+
+                            <Container className="label-container">
+                                <Row>
+                                    <Col className="col-label">
+                                        <Form.Label>DOB:</Form.Label>
+                                    </Col>
+                                    <Col className="col-value">
+                                        <Form.Label>{this.props.dob}</Form.Label>
+                                    </Col>
+                                </Row>
+                            </Container>
+
+                            <Container className="label-container">
+                                <Row>
+                                    <Col className="col-label">
+                                        <Form.Label>Contact: </Form.Label>
+                                    </Col>
+                                    <Col className="col-value">
+                                        <Form.Label>{this.props.contact}</Form.Label>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Form.Group>
+                        <Form.Group controlId="formDiagnosis">
+                            <Form.Label>Diagnosis</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Diagnosis Data" ref={(ref) => this.diagnosis = ref}/>
+                         </Form.Group>
+                         <Form.Group controlId="formSymptoms">
+                            <Form.Label id="symptomstxt">Symptoms</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Symptoms Data" ref={(ref) => this.symptoms = ref}/>
+                         </Form.Group>
+                         <Form.Group controlId="formTreatment">
+                            <Form.Label id="treatmenttxt">Treatment</Form.Label>
+                            <Form.Control type="text" placeholder=" Enter Treatment Data" ref={(ref) => this.treatment = ref}/>
+                         </Form.Group>
+                    </Form>
+                    <div className="submit-div">
+                        <Button className="submitButton" bsStyle="primary" type="button" onClick={this.handleFormSubmit}>
+                            Submit
+                        </Button>
+                    </div>
+                </Card>  
             );
 
         return <this.Popup/>

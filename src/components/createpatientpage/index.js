@@ -49,7 +49,7 @@ class CreatePatientPage extends React.Component {
     render() {
         return (
             <div className="patient-form">
-                <h1>Create New Patient</h1>
+                <h1 class="display-3">Create New Patient</h1>
                 <div className="vertical-center">
                     <Card className="Panel">
                         <h3>Please enter the patient details: </h3>
@@ -67,12 +67,12 @@ class CreatePatientPage extends React.Component {
                             <Form.Group controlId="contact">
                                 <Form.Control type="text" placeholder="Contact" ref={(value) => this.contact = value}/>
                             </Form.Group>
-                            <Form.Group controlId="submit">
-                                <Button className="submitButton" bsStyle="primary" type="button" onClick={this.submitForm}>
-                                    Submit
-                                </Button>
-                            </Form.Group>
                         </Form>
+                        <div className="submit-div">
+                            <Button className="submitButton" bsStyle="primary" type="button" onClick={this.submitForm}>
+                                Submit
+                            </Button>
+                        </div>
                     </Card>
                 </div>
             </div>

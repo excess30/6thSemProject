@@ -1,3 +1,11 @@
 .ChoosePatientPage {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: center;
     padding-top: 20px;
+}
+
+.patients-list {
+    width: 50%;
 }

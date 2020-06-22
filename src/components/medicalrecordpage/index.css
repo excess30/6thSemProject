@@ -1,18 +1,62 @@
-.MedicialRecordpage {
+.MedicalRecordPage {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    padding-top: 20px;
 }
 
-.vertical-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) 
-}
-
-.Panel {
-    padding-left: 30px;
-    padding-right: 30px;
+.medical-form-card {
+    padding-left: 25px;
+    padding-right: 25px;
     padding-top: 25px;
+    padding-bottom: 25px;
+    width: 50%;
 }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.label-container {
+    padding: 0px !important;
+}
+
+.col-label {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.col-value {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%
+}
+
+.medical-form-card .submitButton {
+	padding: 6px 23px;
+	background: #3f4257;
+	border-radius: 30px;
+	color: white;
+	font-weight: 300;
+	font-size: 14px;
+	transition: all 0.2s ease-in;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	width: 25%;
+}
+
+.medical-form-card .submitButton:hover {
+	background: #545972;
+}
+
+.submit-div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css'
 import UploadIcon from './assets/UploadIcon.svg';
-import { Button } from 'react-bootstrap';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import history from '../../history';
 
@@ -62,13 +62,27 @@ class UploadPage extends React.Component {
     render() {
         return (
             <div className="UploadScanPage">
-                <h1>Upload scans</h1>
-                <div>
-                    <Uploader onChange={this.onFileChange} scanType="flair" ext=".nii.gz"/>
-                    <Uploader onChange={this.onFileChange} scanType="t1" ext=".nii.gz"/>
-                    <Uploader onChange={this.onFileChange} scanType="t1ce" ext=".nii.gz"/>
-                    <Uploader onChange={this.onFileChange} scanType="t2" ext=".nii.gz"/>
-                </div>
+                <h1 class="display-3">Upload scans</h1>
+                <br />
+                <Container>
+                    <Row>
+                        <Col>
+                            <Uploader onChange={this.onFileChange} scanType="flair" ext=".nii.gz"/>
+                        </Col>
+                        <Col>
+                            <Uploader onChange={this.onFileChange} scanType="t1" ext=".nii.gz"/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Uploader onChange={this.onFileChange} scanType="t1ce" ext=".nii.gz"/>
+                        </Col>
+                        <Col>
+                            <Uploader onChange={this.onFileChange} scanType="t2" ext=".nii.gz"/>
+                        </Col>
+                    </Row>
+                </Container>
+                <br /><br />
                 <div>
                 <Button className="uploadButton" variant="primary" type="button" onClick={this.uploadFiles}>
                     Upload
