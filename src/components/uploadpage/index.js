@@ -2,7 +2,6 @@ import React from 'react';
 import './index.css'
 import UploadIcon from './assets/UploadIcon.svg';
 import { Button, Container, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
 import history from '../../history';
 
 class UploadPage extends React.Component {
@@ -35,12 +34,19 @@ class UploadPage extends React.Component {
         data.append("t2", this.state.t2);
         data.append("flair", this.state.flair);
 
-        axios.post("http://127.0.0.1:5000/api/upload", data, { 
-            headers: { "x-access-token": localStorage.getItem("token") }
+        const patient_data = this.props.location.patient_data;
+        const record_id = this.props.location.record_id;
+
+        fetch("http://127.0.0.1:5000/api/upload", {
+            method: 'POST',
+            headers: { "x-access-token": localStorage.getItem("token") },
+            body: data
         })
-        .then( (response) => {
-            console.log(response.data);
-            const url = window.URL.createObjectURL(new Blob([response.data]));
+        .then(function(response) {
+            return response.blob();
+        })
+        .then(function(blob) {
+            const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
             link.setAttribute('download', 'res.nii.gz');
@@ -49,13 +55,9 @@ class UploadPage extends React.Component {
             link.remove();
             history.push({
                 pathname: "/medical-record",
-                patient_data: this.props.location.patient_data,
-                record_id: this.props.location.record_id
+                patient_data: patient_data,
+                record_id: record_id
             });
-        })
-        .catch( (err) => {
-            console.log(err);
-            alert("error downloading result.");
         });
     }
 
